@@ -4,22 +4,28 @@ import './board.css'
 import calculateWinner from './calculateWinner';
 
 class board extends Component{
+    /* 
+    game에 있으니까 주석처리
     constructor(props) {
         super(props);
         this.state = {
             squares: Array(9).fill(null), //fill 확인하기 
             xIsNext: true,
         };
-    }
+    } */
 
     handleClick(i) {
-        const squares = this.state.squares.slice();
+        const history = this.state.history;
+        const current = history[history.length -1];
+        const squares = current.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
         squares[i] = this.state.xIsNext ? 'x' : 'O';
         this.setState({
-            squares: squares,
+            history: history.concat([{
+                squares: squares,
+            }]),
             xIsNext: !this.state.xIsNext,
         });
     }
@@ -28,25 +34,17 @@ class board extends Component{
     rendersquare(i){
         return (
             <Square 
-                value={this.state.squares[i]} 
-                onClick={() => this.handleClick(i)}
+                value={this.props.squares[i]} 
+                onClick={() => this.props.onClick(i)}
         />
         );
     }
 
 
     render() {
-        const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner){
-            status = 'Winner:' + winner;
-        }else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-        }
 
         return(
             <div>
-                <div className="status">{status}</div>
                 <div className="board-row">
                     {this.rendersquare(0)}
                     {this.rendersquare(1)}
@@ -62,7 +60,6 @@ class board extends Component{
                     {this.rendersquare(7)}
                     {this.rendersquare(8)}
                 </div>
-
             </div>
 
         );

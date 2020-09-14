@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ShoppingList from './Component/shoppingList'
 import './App.css';
-import Board from './Component/board';
 import Game from './Component/game';
-import CalculateWinner from './Component/calculateWinner';
+
 
 class App extends Component{
 
@@ -12,9 +11,9 @@ class App extends Component{
     return(
       <>
       <ShoppingList />
-      <Board />
+      
       <Game />
-      <CalculateWinner />
+     
       </>
 
     );
