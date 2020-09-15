@@ -3,6 +3,7 @@ import Square from './square';
 import './board.css';
 import calculateWinner from './calculateWinner';
 
+
 class board extends Component{
     /* 
     game에 있으니까 주석처리

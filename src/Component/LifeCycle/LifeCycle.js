@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
+import {Button} from 'reactstrap';
+
+function getRandomColor(){
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
 
 class LifeCycle extends Component{
-
+    
     state ={
         number : 0,
         color : null,
+        randomColor : '#000000',
     }
     myRef = null; 
-
-constructor(props){
-    super(props);
-    console.log('constuctor()' , 'constuctor실행');
-}
+    
+    constructor(props){
+        super(props);
+        console.log('constuctor()' , 'constuctor실행');
+        
+    }
 
 static getDerivedStateFromProps(nextProps, prevState){
     console.log('nextProps: ',nextProps);
     console.log('prevState: ',prevState);
-    if(nextProps.color !== prevState.color){
+    if(nextProps.color !== prevState.randomColor){
         return{
-            color:nextProps.color
+            color: nextProps.color
         };
+        
     }
     return null;
 }
@@ -28,12 +36,14 @@ componentDidMount(){
     console.log('componentDidMount()', 'componentDidMount실행');
 }
 shouldComponentUpdate(nextProps, nextState){
-    console.log("shouldComponentUpdate(),", nextProps,",",nextState, 'shouldComponentUpdate실행' );
+    console.log("shouldComponentUpdate: ", nextProps);
+    console.log("shouldComponentUpdate: ", nextState);
     return nextState.number %10 !==4; 
 }
 
 componentWillUnmount(){
-    console.log("componentWillUnmount()", 'componentWillUnmount실행');
+    console.log('componentWillUnmount: ');
+    console.log('componentWillUnmount: ');
 
 }
 
@@ -42,9 +52,14 @@ handleClick = () => {
         number : this.state.number +1
     });
 }
-
-getSnapshotBeforeUpdate(prevProps, prevState){
-    console.log('getDerivedStateFromProps()','getDerivedStateFromProps 실행');
+handleColorClick = () => {
+    this.setState({
+        randomColor : getRandomColor()
+    });
+}
+getSnapshotBeforeUpdate(prevProps, prevState){ 
+    console.log('getDerivedStateFromProps :',prevState)
+    console.log('getDerivedStateFromProps :',prevProps)
     if(prevProps.color !== this.props.color){
         return this.myRef.style.color;
     }
@@ -52,24 +67,28 @@ getSnapshotBeforeUpdate(prevProps, prevState){
 }
 
 componentDidUpdate(prevProps, prevState, snapshot){
-    console.log('componentDidUpdate()');
+    console.log('componentDidUpdate :' ,prevProps);
+    console.log('componentDidUpdate :' ,prevState);
     if(snapshot){
         console.log('업데이트 되기 직전 색상 :' ,snapshot, 'componentDidUpdate실행');
+    
     }
 }
     render(){
-        console.log('render()','render실행');
-        const style={
-            color: this.props.color
+        console.log('render실행');
+        const colorStyle={
+            color: this.state.randomColor
         }
 
         return(
-            <div>
-                <h1 style = {style} ref={ref => this.myRef=ref}>
+            <div style={{textAlign: 'center'}}>
+                <h1 style = {colorStyle} ref={ref => this.myRef=ref}>
                     {this.state.number}
                 </h1>
-                <p>color : {this.state.color}</p>
-                <button onClick={this.handleClick}>plus</button>
+                <p>color : {this.state.randomColor}</p>
+                <Button outline color="primary" onClick={this.handleColorClick}>Random Color</Button>
+                <br></br>
+                <Button outline color="primary" onClick={this.handleClick}>plus</Button>
             </div>
         );
     }

@@ -1,5 +1,10 @@
+
 .board-row::after{
+    
     clear: both;
     content: "";
     display: table;
+    text-align: center;
+    justify-content: center;
+   
 }

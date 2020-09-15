@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Board from './board';
 import calculateWinner from './calculateWinner';
 import './game.css'
+import {Button} from 'reactstrap';
+
 class game extends Component{
     constructor(props) {
         super(props);
@@ -49,7 +51,7 @@ class game extends Component{
             console.log('move :' + move)
             return(
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <Button outline color="primary" onClick={() => this.jumpTo(move)}>{desc}</Button>
                     
                 </li>
             );
@@ -63,21 +65,26 @@ class game extends Component{
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
         return(
+        <div>    
             <div className="game">
-                <div className="game-board">
-                    <Board 
+                <div className="game-info">
+                    <div>{status}</div>
+                </div>
+            </div>
+            <div className="game-info">    
+                <div >
+                    <Board
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                      />
                 </div>
-                <div className="game-info">
-                    <div>{status}</div>
-                    <ol>{moves}</ol>
-
-                </div>
-                    
             </div>
-
+            <div>    
+                <div className="game-info">
+                    <ol>{moves}</ol>
+                </div>
+            </div>
+        </div>
         );
     }
 }

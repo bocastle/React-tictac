@@ -1,5 +1,6 @@
 import React from 'react';
 import './square.css';
+import { Button } from 'reactstrap';
 
 /*  class사용
     class square extends Component{
@@ -31,9 +32,9 @@ import './square.css';
 
 function square(props){
     return(
-    <button className="square" onClick={props.onClick}> 
+    <Button outline color="primary" size="lg" className="square" onClick={props.onClick}> 
         {props.value}
-    </button>
+    </Button>
     );
 }
 export default square;
