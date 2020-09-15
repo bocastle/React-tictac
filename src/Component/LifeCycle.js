@@ -10,10 +10,12 @@ class LifeCycle extends Component{
 
 constructor(props){
     super(props);
-    console.log('constuctor()');
+    console.log('constuctor()' , 'constuctor실행');
 }
 
 static getDerivedStateFromProps(nextProps, prevState){
+    console.log('nextProps: ',nextProps);
+    console.log('prevState: ',prevState);
     if(nextProps.color !== prevState.color){
         return{
             color:nextProps.color
@@ -23,15 +25,15 @@ static getDerivedStateFromProps(nextProps, prevState){
 }
 
 componentDidMount(){
-    console.log('componentDidMount()');
+    console.log('componentDidMount()', 'componentDidMount실행');
 }
 shouldComponentUpdate(nextProps, nextState){
-    console.log("shouldComponentUpdate(),", nextProps,",",nextState);
+    console.log("shouldComponentUpdate(),", nextProps,",",nextState, 'shouldComponentUpdate실행' );
     return nextState.number %10 !==4; 
 }
 
 componentWillUnmount(){
-    console.log("componentWillUnmount()");
+    console.log("componentWillUnmount()", 'componentWillUnmount실행');
 
 }
 
@@ -42,7 +44,7 @@ handleClick = () => {
 }
 
 getSnapshotBeforeUpdate(prevProps, prevState){
-    console.log('getDerivedStateFromProps()');
+    console.log('getDerivedStateFromProps()','getDerivedStateFromProps 실행');
     if(prevProps.color !== this.props.color){
         return this.myRef.style.color;
     }
@@ -52,11 +54,11 @@ getSnapshotBeforeUpdate(prevProps, prevState){
 componentDidUpdate(prevProps, prevState, snapshot){
     console.log('componentDidUpdate()');
     if(snapshot){
-        console.log('업데이트 되기 직전 색상 :' ,snapshot);
+        console.log('업데이트 되기 직전 색상 :' ,snapshot, 'componentDidUpdate실행');
     }
 }
     render(){
-        console.log('render()');
+        console.log('render()','render실행');
         const style={
             color: this.props.color
         }

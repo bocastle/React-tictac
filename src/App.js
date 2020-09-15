@@ -22,8 +22,10 @@ handleClick = () => {
     return(
       <>
         <div>
+        {/* 
         <ShoppingList />
-        <Game />
+        <Game /> 
+        */}
         </div>
         <div>
         <button onClick={this.handleClick}>Random Color</button>
