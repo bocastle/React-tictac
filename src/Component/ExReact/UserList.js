@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
 import PhoneForm from './PhoneForm';
 import PhoneInfoList from './PhoneInfoList';
 
@@ -26,12 +27,43 @@ class UserList extends Component{
             information: information.concat({ id: this.id++, ...data})
         })
     }
+
+    handleRemove = (id) => {
+        const { information } = this.state;
+        this.setState({
+            information: information.filter(info => info.id !== id )
+        })
+    } 
     
+    handleUpdate = (id, data) => {
+        const {information } = this.state;
+        this.setState({
+            information: information.map(
+                info => id === info.id
+                 ? { ... info, ...data}
+                  : info
+                // 새 객체를 만들어서 기존의 값고 전달받은 data를 덮어쓰고 기존값을 그대로 유지한다. 
+            )
+        })
+    }
     render(){
+        const { information } = this.state;
         return (
             <div>
-                <PhoneForm onCreate={this.handleCreate}/>
-                <PhoneInfoList data={this.state.information}/>
+                <Row style={{justifyContent:'center'}}>
+                    <Col sm="4">
+                        <PhoneForm onCreate={this.handleCreate}/>
+                    </Col>
+                </Row>
+                <Row style={{justifyContent:'center'}}>
+                    <Col sm="4">
+                        <PhoneInfoList 
+                            data={this.state.information}
+                            onRemove={this.handleRemove}
+                            onUpdate={this.handleUpdate}
+                        />
+                    </Col>
+                </Row>
             </div>
         );
     }

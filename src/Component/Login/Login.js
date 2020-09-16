@@ -21,7 +21,7 @@ class Login extends Component{
             
         <div>
             <Container>
-                <Row>
+                <Row style={{justifyContent:'center'}}>
                     <Col sm="4">
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
