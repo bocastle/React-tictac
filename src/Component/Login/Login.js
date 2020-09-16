@@ -22,7 +22,7 @@ class Login extends Component{
         <div>
             <Container>
                 <Row style={{justifyContent:'center'}}>
-                    <Col sm="4">
+                    <Col>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>아이디</InputGroupText>
@@ -31,7 +31,7 @@ class Login extends Component{
                         ID 값 확인: {this.state.id}
                         </InputGroup>
                         <InputGroup>
-                            <InputGroupAddon>
+                            <InputGroupAddon addonType="prepend">
                             <InputGroupText>비밀번호</InputGroupText>
                             </InputGroupAddon>
                             <Input placeholder="비밀번호를 입력하세요" onChange={e => {this.setState({password: e.target.value})}}></Input>

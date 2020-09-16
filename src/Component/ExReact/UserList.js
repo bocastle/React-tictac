@@ -40,7 +40,7 @@ class UserList extends Component{
         this.setState({
             information: information.map(
                 info => id === info.id
-                 ? { ... info, ...data}
+                 ? { ...info, ...data}
                   : info
                 // 새 객체를 만들어서 기존의 값고 전달받은 data를 덮어쓰고 기존값을 그대로 유지한다. 
             )
@@ -51,14 +51,14 @@ class UserList extends Component{
         return (
             <div>
                 <Row style={{justifyContent:'center'}}>
-                    <Col sm="4">
+                    <Col>
                         <PhoneForm onCreate={this.handleCreate}/>
                     </Col>
                 </Row>
                 <Row style={{justifyContent:'center'}}>
-                    <Col sm="4">
+                    <Col>
                         <PhoneInfoList 
-                            data={this.state.information}
+                            data={information}
                             onRemove={this.handleRemove}
                             onUpdate={this.handleUpdate}
                         />

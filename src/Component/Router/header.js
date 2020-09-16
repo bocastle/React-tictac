@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Row } from 'reactstrap';
 
 const Header = ({history}) => {
@@ -17,6 +17,7 @@ const Header = ({history}) => {
                     <Button color="primary" size="sm" onClick={() => {history.push('/lifecycle')}}>라이프사이클</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/shoppingList')}}>쇼핑 리스트</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/UserList')}}>전화번호</Button>
+                    <Button color="primary" size="sm" onClick={() => {history.push('/LotteryBox')}}>로또생성기</Button>
                 </div>
             </Row>
             

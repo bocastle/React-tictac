@@ -9,9 +9,10 @@ class shopping extends Component {
             <>
                 <div className="shopping-list">
                     <h1>shopping List for {this.props.name}</h1>
-                    
+                </div>
+                <div className="shopping-list">
                     <ul>
-                        <li>Instagram</li>
+                        <li><b>Instagram</b></li>
                         <li>WhatsApp</li>
                         <li>Oculus</li>
                     </ul>
@@ -23,5 +24,4 @@ class shopping extends Component {
         );
     }
 }
-
 export default shopping;
