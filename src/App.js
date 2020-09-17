@@ -9,7 +9,7 @@ import history from "./Component/Router/history";
 import Login from './Component/Login/Login';
 import UserList from './Component/ExReact/UserList'
 import LotteryBox from './Component/Lotto/LotteryBox';
-import AxiosUsers02 from './Component/axios/AxiosUsers02';
+import AxiosUser from './Component/axios/AxiosUser';
 
 /* function getRandomColor(){
   return '#' + Math.floor(Math.random()*16777215).toString(16);
@@ -53,7 +53,7 @@ class App extends Component{
               <Route exact path="/shoppingList" component={ShoppingList}></Route>
               <Route exact path="/UserList" component={UserList}></Route>
               <Route exact path="/LotteryBox" component={LotteryBox}></Route>
-              <Route exact path="/AxiosUsers02" component={AxiosUsers02}></Route>
+              <Route exact path="/AxiosUser" component={AxiosUser}></Route>
             </Switch>
           </div>
         </div>
