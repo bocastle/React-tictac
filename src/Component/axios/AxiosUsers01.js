@@ -18,7 +18,7 @@ function Users() {
                 'https://jsonplaceholder.typicode.com/users'
                 );
                 response.data.map(item => (
-                    console.log(item.name)
+                    console.log(item)
                     ))
                     setUsers(response.data); //데이터는 response.data 안에 들어있습니다. 
                 } catch (e) {
@@ -38,9 +38,10 @@ function Users() {
 
     return (
         <ul>
+            
             {users.map(item => (
                 <li key={item.id}>
-                    {users.username} ({item.name})
+                    {item.username} ({item.name})
                 </li>
             ))}
             <Button onClick={fetchUsers}>다시 실행하기</Button>

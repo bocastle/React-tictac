@@ -31,16 +31,19 @@ function useAsync(callback, deps = [] ) {
         data: null,
         error: false
     });
+    /* console.log(callback) */ //postItems로 들어옴 값 확인
     const fetchData = async () => {
         dispatch ({type: 'LOADING'});
+      
         try {
             const data = await callback();
             dispatch({type: 'SUCCESS',data });
+           /*  console.log("SUCCESS값확인:" , data)  *///확인완료
         } catch (e) {
             dispatch ({ type: 'ERROR', error: e});
+          /*   console.log("data확인:", e) */ //에러는 값이 찍힌다. 타입에러
         }
     };
-
 
     useEffect (() => {
         fetchData();
