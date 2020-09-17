@@ -18,7 +18,8 @@ const Header = ({history}) => {
                     <Button color="primary" size="sm" onClick={() => {history.push('/shoppingList')}}>쇼핑 리스트</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/UserList')}}>전화번호</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/LotteryBox')}}>로또생성기</Button>
-                </div>
+                    <Button color="primary" size="sm" onClick={() => {history.push('/AxiosUsers02')}}>Axios</Button>
+                </div> 
             </Row>
             
         </div>
