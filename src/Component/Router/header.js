@@ -20,6 +20,7 @@ const Header = ({history}) => {
                     <Button color="primary" size="sm" onClick={() => {history.push('/LotteryBox')}}>로또생성기</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/AxiosUser')}}>Axios</Button>
                     <Button color="primary" size="sm" onClick={() => {history.push('/AxiosUsers01')}}>AxiosGet</Button>
+                
                 </div> 
             </Row>
             

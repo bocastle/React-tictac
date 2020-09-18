@@ -8,18 +8,20 @@ import useAsync from './useAsync';
 async function postItems() {
     const response = await axios.post(
        /*  'https://jsonplaceholder.typicode.com/users' */
-        'https://f2d0c0c3-714b-4e6a-86a8-2923d134cc9e.mock.pstmn.io/posttest',
+        /* 'https://f2d0c0c3-714b-4e6a-86a8-2923d134cc9e.mock.pstmn.io/posttest', */
+            'http://localhost:4000/post',
         {
-           /*  name: "honggildong",
-            phone: "010-1234-5678" */
+            id: "admin",
+            password: "1004"
         })
+
         /* .then(function (response){
             console.log("1번: ",response)
             console.log("2번: ",response.data)
             console.log("3번: ",response.data.index)
             console.log("4번: ",response.data.name)
         }) */
-        /* console.log(response) */
+        console.log("response 값:" ,response)
           /*   response.data.map(item => (
                 console.log(item.name)
             )) */
@@ -42,11 +44,12 @@ function Items() {
         <>
            <ul>
                {console.log("item값확인: ", items)}
-               {items.map((item, index) => (
+               {items}
+           {/*     {items.map((item, index) => (
                    <li key={index}>
-                       {item.name} ({item.phone})
+                       {item.id} ({item.password})
                    </li>
-               ))}
+               ))} */}
                
             </ul> 
             <button onClick={refetch}>다시 불러오기</button>

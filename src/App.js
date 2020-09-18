@@ -12,6 +12,7 @@ import LotteryBox from './Component/Lotto/LotteryBox';
 import AxiosUser from './Component/axios/AxiosUser';
 import AxiosUsers01 from './Component/axios/AxiosUsers01';
 
+
 /* function getRandomColor(){
   return '#' + Math.floor(Math.random()*16777215).toString(16);
 } */
@@ -56,6 +57,7 @@ class App extends Component{
               <Route exact path="/LotteryBox" component={LotteryBox}></Route>
               <Route exact path="/AxiosUser" component={AxiosUser}></Route>
               <Route exact path="/AxiosUsers01" component={AxiosUsers01}></Route>
+           
             </Switch>
           </div>
         </div>
