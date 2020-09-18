@@ -42,16 +42,19 @@ class Login extends Component{
         const a = JSON.stringify(Items);
         console.log(a); */
         //추가 부분
-        Axios.post(`http://localhost:4000/post`, 
+        const response = Axios.post(`http://localhost:4000/post`, 
            Items
           /* data: JSON.stringify(Items) */
         )
         /* .then( res => res.json()) */
-        .then( obj => {
-            if(obj.result === 'succ') {
+        
+        console.log(response)
+        /* .then( obj => {
+            if(obj === '접속했습니다.') {
                 alert("성공했다!!");
             }
-        })
+        }) */
+        return response
     }
     
     handleChange = (e) => {
