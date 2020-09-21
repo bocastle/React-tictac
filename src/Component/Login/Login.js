@@ -1,6 +1,7 @@
-import Axios from 'axios';
 import React, { Component } from 'react';
 import {InputGroup, InputGroupAddon, Container, Row, Col, InputGroupText, Input, Button} from 'reactstrap';
+import Axios from 'axios';
+import swal from 'sweetalert';
 
 
 
@@ -22,7 +23,7 @@ class Login extends Component{
  
     handleSubmit = (e) => {
         e.preventDefault();
-        alert("ID: " + this.state.id + "Pwd: " + (this.state.password));
+        swal("ID: " + this.state.id + "Pwd: " + (this.state.password));
         console.log(this.state);
         this.handleAccount(this.state);
         console.log("무엇을 넘길것인가:",this.state)
